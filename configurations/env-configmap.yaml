@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 data:
-  AWS_BUCKET: arn:aws:s3:::minhnc14-udacity-project
+  AWS_BUCKET: arn:aws:s3:::minhnc14-udacity-s3
   AWS_PROFILE: default
   AWS_REGION: us-east-1
   JWT_SECRET: testing
   POSTGRES_DB: postgres
-  POSTGRES_HOST: minhnc14-udacity-database.chu6opo6aows.us-east-1.rds.amazonaws.com
+  POSTGRES_HOST: minhnc14-udacity-db.chu6opo6aows.us-east-1.rds.amazonaws.com
   URL: http://localhost:8100
 metadata:
   name: env-config
