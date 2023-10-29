@@ -104,3 +104,38 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 choco install minikube
 choco install kubernetes-cli
 ```
+
+### Deployment
+
+```
+## AWS config
+[default]
+aws_access_key_id=[INPUT_KEY]
+aws_secret_access_key=[INPUT_KEY]
+
+## Apply env variables and secrets
+kubectl apply -f aws-secret.yaml
+kubectl apply -f env-secret.yaml
+kubectl apply -f env-configmap.yaml
+
+## Deployments
+kubectl apply -f reverseproxy-deployment.yaml
+kubectl apply -f backend-feed-deployment.yaml
+kubectl apply -f backend-user-deployment.yaml
+kubectl apply -f frontend-deployment.yaml
+
+## Service
+kubectl apply -f reverseproxy-service.yaml
+kubectl apply -f backend-feed-service.yaml
+kubectl apply -f backend-user-service.yaml
+kubectl apply -f frontend-service.yaml
+
+# Load balancer
+kubectl expose deployment frontend --type=LoadBalancer --name=publicfrontend
+kubectl expose deployment reverseproxy --type=LoadBalancer --name=publicreverseproxy
+
+# Scalling
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl get deployment metrics-server -n kube-system
+kubectl autoscale deployment frontend --cpu-percent=70 --min=3 --max=5
+```
