@@ -83,4 +83,24 @@ Launch the frontend app locally.
     npx eslint --ext .js,.ts src/ --fix
     ```
 4. `set_env.sh` is really for your backend application. Frontend applications have a different notion of how to store configurations. Configurations for the application endpoints can be configured inside of the `environments/environment.*ts` files.
-5. In `set_env.sh`, environment variables are set with `export $VAR=value`. Setting it this way is not permanent; every time you open a new terminal, you will have to run `set_env.sh` to reconfigure your environment variables. To verify if your environment variable is set, you can check the variable with a command like `echo $POSTGRES_USERNAME`.
+5. In `set_env.sh`, environment variables are set with `export $VAR=value`. Setting it this way is not permanent; every time you open a new terminal, you will have to run `set_env.sh` to reconfigure your environment variables. To verify if your environment variable is set, you can check the variable with a command like `echo $POSTGRES_USERNAME`
+
+
+## NOTE
+
+### Install Chocolatey on Windows
+
+First, we need to run the Get-ExecutionPolicy. If it returns Restricted, then we need to run one of the two commands below.
+
+```
+Set-ExecutionPolicy AllSigned
+
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) 
+```
+
+### Installation of minikube and kubectl using chocolatey
+
+```
+choco install minikube
+choco install kubernetes-cli
+```
