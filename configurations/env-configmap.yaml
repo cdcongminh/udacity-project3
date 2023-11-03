@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 data:
-  AWS_BUCKET: arn:aws:s3:::minhuda-s3
+  AWS_BUCKET: arn:aws:s3:::udaproject3
   AWS_PROFILE: default
   AWS_REGION: us-east-1
   JWT_SECRET: testing
   POSTGRES_DB: postgres
-  POSTGRES_HOST: minhuda-db.cetgnw5nom6b.us-east-1.rds.amazonaws.com
+  POSTGRES_HOST: udaproject3db.cw0pguwbtwak.us-east-1.rds.amazonaws.com
   URL: http://localhost:8100
 metadata:
   name: env-config
