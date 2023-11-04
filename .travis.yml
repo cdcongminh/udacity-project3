@@ -12,7 +12,7 @@ before_script:
 
 script:
   - docker --version
-  - docker build -t udagram-frontend ./udagram-frontend
+  # - docker build -t udagram-frontend ./udagram-frontend
   - docker tag udagram-frontend cdcongminh/udagram-frontend
   - docker build -t reverseproxy ./udagram-reverseproxy
   - docker build -t udagram-api-feed ./udagram-api-feed
@@ -23,7 +23,7 @@ script:
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push cdcongminh/udagram-frontend
+  # - docker push cdcongminh/udagram-frontend
   - docker push cdcongminh/reverseproxy
   - docker push cdcongminh/udagram-api-feed
   - docker push cdcongminh/udagram-api-user
