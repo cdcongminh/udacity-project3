@@ -6,7 +6,7 @@ data:
   AWS_REGION: us-east-2
   JWT_SECRET: testing
   POSTGRES_DB: postgres
-  POSTGRES_HOST: udacity-project3-db.c7cdvsyqtxdt.us-east-2.rds.amazonaws.com
+  POSTGRES_HOST: udacity-project3-database.c7cdvsyqtxdt.us-east-2.rds.amazonaws.com
   URL: http://localhost:8100
 metadata:
   name: env-config
