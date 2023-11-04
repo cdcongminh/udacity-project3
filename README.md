@@ -130,3 +130,13 @@ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/late
 kubectl get deployment metrics-server -n kube-system
 kubectl autoscale deployment frontend --cpu-percent=70 --min=3 --max=5
 ```
+
+### Status
+
+```
+kubectl get deployments
+
+kubectl get services 
+
+kubectl get pods
+```
