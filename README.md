@@ -88,21 +88,12 @@ Launch the frontend app locally.
 
 ## NOTE
 
-### Install Chocolatey on Windows
-
-First, we need to run the Get-ExecutionPolicy. If it returns Restricted, then we need to run one of the two commands below.
+### Create EKS
 
 ```
-Set-ExecutionPolicy AllSigned
+eksctl create cluster --name uda-cluster --version 1.28 --region us-east-1 --zones=us-east-1a,us-east-1b,us-east-1c,us-east-1d
 
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) 
-```
-
-### Installation of minikube and kubectl using chocolatey
-
-```
-choco install minikube
-choco install kubernetes-cli
+aws eks update-kubeconfig --region us-east-1 --name uda-cluster
 ```
 
 ### Deployment
